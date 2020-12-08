@@ -1,0 +1,121 @@
+.verify_phone {
+  position: relative;
+  background: url(../../assests/images/header_bg.png) no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  // height: calc(100vh - 90px);
+  min-height: 100vh;
+  padding-top: 60px;
+  padding-bottom: 136px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .ant-row {
+    align-items: center;
+    .content_container {
+      h3 {
+        color: #222b45;
+        font-size: 30px;
+        font-family: "Cairo-Bold";
+      }
+      p {
+        color: #7a7f8f;
+        font-size: 20px;
+        margin-top: 5px;
+        margin-bottom: 30px;
+      }
+    }
+    .ant-form {
+      height: 441px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .top_form {
+        display: flex;
+        .ant-form-item-control-input {
+          input {
+            width: 45px;
+            height: 50px;
+            background: #ffffff 0% 0% no-repeat padding-box;
+            border: 1px solid #f2f2f2;
+            border-radius: 10px;
+            opacity: 1;
+            margin-left: 16px;
+            display: inline-block;
+            text-align: center;
+          }
+        }
+      }
+
+      .bottom_form {
+        .next-button {
+          color: #fff;
+          display: inline-block;
+          width: 350px;
+          height: 50px;
+          padding: 0;
+          background: #25b28f;
+          text-align: center;
+          line-height: 50px;
+          border-radius: 10px;
+          font-size: 20px;
+          font-family: "Cairo-bold";
+        }
+      }
+    }
+
+    .image_container {
+      margin-right: -15px;
+    }
+  }
+  .ant-alert {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    color: #222b45;
+  }
+}
+
+.english_version {
+  .phone_number {
+    .custom_card {
+      position: relative;
+      z-index: 55;
+      text-align: left;
+      direction: ltr;
+      padding-right: 0px;
+      padding-left: 95px;
+      .top_card {
+        .ant-row {
+          flex-direction: row;
+        }
+      }
+      .bottom_card {
+      }
+      .ant-select-selection-item {
+        padding-right: 20px !important;
+        padding-left: 0 !important;
+        img {
+          margin-left: 0px !important;
+          margin-right: 8px !important;
+        }
+      }
+      .ant-form-item-control-input input {
+        margin-right: 0 !important;
+        margin-left: 15px !important;
+      }
+      .ant-select-arrow {
+        left: auto !important;
+        right: 11px !important;
+      }
+    }
+    .image_container {
+      transform: scaleX(-1);
+    }
+  }
+}

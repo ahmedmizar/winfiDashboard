@@ -1,0 +1,105 @@
+.social_egistration {
+  position: relative;
+  background: url(../../assests/images/header_bg.png) no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  // height: calc(100vh - 90px);
+  min-height: 100vh;
+  padding-top: 60px;
+  padding-bottom: 136px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .ant-row {
+    align-items: center;
+    .custom_card {
+      padding-right: 0px;
+      text-align: center;
+      height: auto;
+      .content_container {
+        h3 {
+          color: #222b45;
+          font-size: 28px;
+          font-family: "Cairo-Bold";
+          margin-top: 55px;
+          margin-bottom: 0px;
+        }
+        p {
+          color: #7a7f8f;
+          font-size: 20px;
+          margin-top: 5px;
+          margin-bottom: 60px;
+        }
+        .social_btn {
+          .socialbtn {
+            width: 160px;
+            height: 50px;
+            border-radius: 10px;
+            margin-left: 30px;
+            border: 1px solid #f2f2f2;
+            img {
+              width: 12px;
+              height: 24px;
+            }
+            .google-img {
+              width: 24px;
+            }
+          }
+        }
+        .or {
+          font-size: 25px;
+          margin-top: 18px;
+          margin-bottom: 30px;
+        }
+        .register-now {
+          color: #fff;
+          display: inline-block;
+          width: 350px;
+          height: 50px;
+          background: #25b28f;
+          text-align: center;
+          line-height: 50px;
+          border-radius: 10px;
+          font-size: 20px;
+          font-family: "Cairo-bold";
+        }
+        .login-btn {
+          display: block;
+          width: 350px;
+          height: 50px;
+          background: #eef2f5 0% 0% no-repeat padding-box;
+          border-radius: 10px;
+          margin: 15px auto auto;
+          text-align: center;
+          line-height: 50px;
+          color: #7a7f8f;
+          font-size: 15px;
+          span {
+            color: #222b45;
+            font-family: "Cairo-Bold";
+          }
+        }
+      }
+    }
+
+    .image_container {
+      margin-right: -15px;
+    }
+  }
+}
+
+.english_version {
+  .social_egistration {
+    .custom_card {
+      position: relative;
+      z-index: 55;
+    }
+    .image_container {
+      transform: scaleX(-1);
+    }
+  }
+}

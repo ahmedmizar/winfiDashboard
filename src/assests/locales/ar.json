@@ -1,0 +1,20 @@
+{
+  "Menu": {
+    "About": "حول",
+    "Events": "أحداث",
+    "SignUp": "سجل",
+    "login": "تسجيل الدخول",
+    "logOut": "تسجيل خروج",
+    "Business": "عملك",
+    "Support": "مساعده",
+    "AccountSet": "اعدادات الحساب",
+    "BusinessOwner": "لمالك الأعمال",
+    "language": "English",
+    "SwitchProfile": "تبديل الحساب"
+  },
+  "Login": {
+    "UserName": "الاسم",
+    "Password": "Password",
+    "UserNamePlacholder": "Enter your User Name"
+  }
+}

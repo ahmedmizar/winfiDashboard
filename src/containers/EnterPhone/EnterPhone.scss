@@ -1,0 +1,91 @@
+.enter_phone {
+  display: flex;
+  width: 100%;
+  .left {
+    padding-top: 27.5vh;
+    padding-left: 56px;
+    img {
+      width: 188px;
+      height: 49px;
+    }
+    p {
+      color: #fff;
+      font-family: "Poppins-SemiBold";
+      margin: 30px 0 0;
+      font-size: 35px;
+      letter-spacing: normal;
+      font-weight: 600;
+      padding-right: 132px;
+      line-height: 40px;
+    }
+  }
+  .right {
+    padding-top: 27.5vh;
+    padding-left: 146px;
+    h4 {
+      color: #000000;
+      font-family: "Poppins-SemiBold";
+      font-size: 32px;
+      letter-spacing: 0;
+      font-weight: 600;
+      margin-bottom: 0;
+      line-height: 40px;
+    }
+    .powrd_by {
+      margin-top: 0px;
+      margin-bottom: 44px;
+      img {
+        width: 24px;
+        height: 24px;
+        margin: 0 2px 0 0;
+      }
+      span {
+        margin: 4px 0 4px 2px;
+        font-size: 10px;
+        color: #198180;
+      }
+    }
+    .enter_your_mobile {
+      p {
+        font-size: 14px;
+        color: #000000;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+      .form-container {
+        .ant-input-wrapper {
+          width: 384px;
+          height: 56px;
+          line-height: 56px;
+          border: 1px solid #dadcdf;
+          border-radius: 4px;
+          .ant-input-group-addon {
+            border: none;
+            background-color: #fff;
+            .ant-select {
+              width: 105px;
+              background-color: #fff;
+              position: relative;
+              &::after {
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 27px;
+
+                border: solid 1px #dad8d8;
+                top: 0;
+                right: 0;
+                display: block;
+              }
+            }
+          }
+          .ant-input {
+            width: 100%;
+            height: 100%;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
