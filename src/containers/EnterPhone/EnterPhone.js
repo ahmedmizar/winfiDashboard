@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, Input, Form,Select } from "antd";
+import { Link } from "react-router-dom";
+import { Button, Input, Form, Select } from "antd";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
 import "./EnterPhone.scss"
@@ -12,10 +13,10 @@ class EnterPhone extends Component {
     const prefixSelector = (
       <Form.Item name="prefix" noStyle>
         <Select
-          
+
         >
-          <Option value="86">+86</Option>
-          <Option value="87">+87</Option>
+          <Option value="86"><img src={require("../../assests/Icons/flag-400.png")} /> +20</Option>
+          <Option value="87"><img src={require("../../assests/Icons/saudi_arabia.png")} />87</Option>
         </Select>
       </Form.Item>
     );
@@ -57,13 +58,15 @@ class EnterPhone extends Component {
                     value={this.state.phone}
                   />
                 </Form.Item>
-
-                <Button className="next-button" htmlType="submit">
-                  تسجيل
-                      </Button>
+                <p>We will send you an OTP code via SMS.</p>
+                <Link className="next-button" htmlType="submit" to='/veryifyPhone'>
+                  Continue
+                </Link>
 
               </Form>
+
             </div>
+            <p className="terms">By clicking “Continue” I agree to WinFi's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
           </div>
         </RightCard>
       </div>

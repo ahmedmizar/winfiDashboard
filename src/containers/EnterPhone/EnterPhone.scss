@@ -22,6 +22,7 @@
   .right {
     padding-top: 27.5vh;
     padding-left: 146px;
+    padding-bottom: 34.1vh;
     h4 {
       color: #000000;
       font-family: "Poppins-SemiBold";
@@ -41,16 +42,18 @@
       }
       span {
         margin: 4px 0 4px 2px;
-        font-size: 10px;
+        font-size: 11px;
         color: #198180;
       }
     }
     .enter_your_mobile {
       p {
-        font-size: 14px;
-        color: #000000;
-        margin: 0;
-        margin-bottom: 8px;
+        &:first-of-type {
+          font-size: 14px;
+          color: #000000;
+          margin: 0;
+          margin-bottom: 8px;
+        }
       }
       .form-container {
         .ant-input-wrapper {
@@ -83,8 +86,99 @@
             width: 100%;
             height: 100%;
             border: none;
+            &:focus {
+              box-shadow: none;
+            }
+          }
+          .ant-select-selection-item {
+            img {
+              width: 24px;
+            }
           }
         }
+        p {
+          color: #5f6367;
+          font-size: 16px;
+          font-family: "Poppins-Medium";
+          margin-bottom: 32px;
+          margin-top: 0;
+        }
+        .next-button {
+          width: 364px;
+          border-radius: 4px;
+          box-shadow: 0 2px 24px 0 rgba(153, 34, 44, 0.32);
+          background-color: #980a2b;
+          color: #fff;
+          font-size: 18px;
+          height: 64px;
+          margin-bottom: 16px;
+          display: block;
+          text-align: center;
+          line-height: 64px;
+        }
+      }
+      .terms {
+        color: #5f6367;
+        font-size: 14px;
+        font-family: "Poppins-Medium";
+        a {
+          color: #000000;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+.ant-select-item-option-content {
+  img {
+    width: 24px;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  .enter_phone {
+    flex-direction: column;
+    .left {
+      padding-top: 131px;
+      width: 100%;
+      height: 289px;
+      padding-left: 0;
+      text-align: center;
+      p {
+        font-size: 24px;
+        padding-right: 0;
+        margin-top: 16px;
+      }
+    }
+    .right {
+      width: 100%;
+      padding-top: 32px;
+      padding-left: 24px;
+      padding-right: 32px;
+      h4 {
+        font-size: 24px;
+        margin-bottom: 8px;
+        line-height: 30px;
+      }
+      .powrd_by {
+        margin-bottom: 24px;
+      }
+      .ant-form-item {
+        margin-bottom: 8px !important;
+      }
+      .form-container {
+        .ant-input-wrapper {
+          width: 100% !important;
+        }
+        p {
+          color: #6c6c6c !important;
+          margin-bottom: 24px !important;
+        }
+        .next-button {
+          width: 100% !important;
+        }
+      }
+      .terms {
+        color: #6c6c6c !important;
       }
     }
   }
