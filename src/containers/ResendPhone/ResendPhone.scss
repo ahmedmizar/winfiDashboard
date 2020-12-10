@@ -1,4 +1,4 @@
-.veryify_phone {
+.resend_phone {
   display: flex;
   width: 100%;
   .left {
@@ -120,23 +120,15 @@
           font-size: 16px;
           font-family: "Poppins-Medium";
         }
-        &:nth-of-type(2) {
-          font-size: 18px;
-          color: #000000;
-          margin-bottom: 21px;
-          span {
-            margin-left: 9px;
-            color: #99222c;
-            font-family: "Poppins-SemiBold";
-          }
-        }
         &:last-of-type {
-          display: none;
+          color: #000000;
+          font-size: 18px;
+          margin-bottom: 8px;
         }
       }
       .powrd_by {
-        margin-top: 0px;
-        margin-bottom: 44px;
+        margin-top: 20px;
+        margin-bottom: 0px;
         img {
           width: 24px;
           height: 24px;
@@ -148,9 +140,45 @@
           color: #198180;
         }
       }
-      a,
-      .wats_app {
-        display: none;
+      a {
+        display: inline-block;
+        border: 1px solid #99222c;
+        width: 149px;
+        height: 47px;
+        color: #000000;
+        text-align: center;
+        line-height: 47px;
+        font-size: 16px;
+        font-family: "Poppins-Medium";
+        position: relative;
+        &:last-of-type {
+          margin-left: 15px;
+          &::before {
+            position: absolute;
+            top: 9px;
+            left: 36px;
+            content: "...";
+            width: 2px;
+            width: 16px;
+            display: block;
+            height: 11px;
+            line-height: 0px;
+            padding: 3px 2px 6px;
+            background-color: #eeefee;
+          }
+        }
+
+        .svg-inline--fa.fa-w-16,
+        .fa-whatsapp {
+          width: 20px;
+          height: 20px;
+        }
+        .fa-whatsapp {
+          color: #4caf50;
+        }
+        span {
+          margin-left: 12px;
+        }
       }
     }
   }
@@ -161,7 +189,7 @@
   }
 }
 @media only screen and (max-width: 767.98px) {
-  .veryify_phone {
+  .resend_phone {
     flex-direction: column;
     .left {
       padding-top: 131px;
@@ -226,48 +254,16 @@
             display: block;
           }
         }
-        .powrd_by {
-          display: none;
-        }
+        // .powrd_by {
+        //   display: none;
+        // }
         a {
           display: block;
-          border: 1px solid #99222c;
-          width: 149px;
-          height: 47px;
-          color: #000000;
-          text-align: center;
-          line-height: 47px;
           margin: auto;
-          font-size: 16px;
-          font-family: "Poppins-Medium";
-
-          position: relative;
-          &::before {
-            position: absolute;
-            top: 9px;
-            left: 36px;
-            content: "...";
-            width: 2px;
-            width: 16px;
-            display: block;
-            height: 11px;
-            line-height: 0px;
-            padding: 3px 2px 6px;
-            background-color: #eeefee;
+          &:last-of-type {
+            margin-left: auto;
+            margin-top: 20px;
           }
-          .svg-inline--fa.fa-w-16 {
-            width: 20px;
-            height: 20px;
-          }
-          span {
-            margin-left: 12px;
-          }
-        }
-        .wats_app {
-          display: block;
-          margin-top: 20px;
-          margin-bottom: 0px;
-          font-size: 14px;
         }
       }
     }

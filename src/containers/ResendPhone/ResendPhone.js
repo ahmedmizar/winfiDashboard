@@ -3,10 +3,11 @@ import { Button, Input, Form, Select } from "antd";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
-import "./VeryifyPhone.scss"
+import { faPhoneAlt} from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import "./ResendPhone.scss"
 const { Option } = Select;
-class VeryifyPhone extends Component {
+class ResendPhone extends Component {
   constructor(props) {
     super(props);
 
@@ -55,7 +56,7 @@ class VeryifyPhone extends Component {
     const { verifyPhoneCode } = this.state;
 
     return (
-      <div className="veryify_phone">
+      <div className="resend_phone">
         <LeftCard>
           <img src={require("../../assests/images/Costa_logo.png")} />
           <p>Welcome to, Costa</p>
@@ -64,7 +65,7 @@ class VeryifyPhone extends Component {
           <h4>Phone number verification</h4>
 
           <div className="edit_your_mobile">
-            <p>Please enter OTP code sent to </p>
+            <p>Phone number verification</p>
             <div className="form-edit">
               <form onFinish={this.handleSubmit} >
 
@@ -157,14 +158,13 @@ class VeryifyPhone extends Component {
           </div>
           <div className="resend">
             <p>Didn’t recieve OTP code?</p>
-            <p>You can resend code in <span>0:59 sec</span></p>
             <p>Resend Code via</p>
+            <a href="#" ><FontAwesomeIcon icon={faWhatsapp} /><span>Whatsapp</span></a>
+            <a href="#" className="call_me"><FontAwesomeIcon icon={faPhoneAlt} /><span>Call me</span></a>
             <div className="powrd_by">
               <img src={require("../../assests/Icons/group@2x.png")} />
               <span>Powered by WinFi</span>
             </div>
-            <a href="#"><FontAwesomeIcon icon={faPhoneAlt} /><span>Call me</span></a>
-            <p className="wats_app">or sedn code via watsapp</p>
           </div>
         </RightCard>
       </div>
@@ -172,4 +172,4 @@ class VeryifyPhone extends Component {
   }
 }
 
-export default VeryifyPhone;
+export default ResendPhone;
