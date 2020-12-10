@@ -5,6 +5,8 @@ import RightCard from "../../Ui/RightCard/RightCard"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
 import "./VeryifyPhone.scss"
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+
 const { Option } = Select;
 class VeryifyPhone extends Component {
   constructor(props) {
@@ -19,41 +21,70 @@ class VeryifyPhone extends Component {
     this.state = {
       verifyPhoneCode: [],
       finalCode: "",
-      phone: "(+20)01069578145",
-      isEdit: false
+      isEdit: false,
+      counter: 60
+
     };
   }
 
   componentDidMount() {
     this.textInput1.current.focus();
+    this.myInterval = setInterval(() => {
+      this.setState(({ counter }) => ({
+        counter: counter - 1
+      }))
+    }, 1000)
+
   }
+
+
+  stopCounter() {
+    if (this.state.counter == 0) {
+      clearInterval(this.myInterval)
+    }
+  }
+
   changeNumbers(index, val) {
     const { verifyPhoneCode } = this.state;
     let result = verifyPhoneCode;
     result[index] = val;
-    console.log(index);
 
-    if (index == 5 && val.length > 0) {
-      this.textInput2.current.focus();
-    }
     if (index == 4 && val.length > 0) {
-      this.textInput3.current.focus();
-    }
-    if (index == 3 && val.length > 0) {
-      this.textInput4.current.focus();
-    }
-    if (index == 2 && val.length > 0) {
-      this.textInput5.current.focus();
-    }
-    if (index == 1 && val.length > 0) {
       this.textInput6.current.focus();
     }
-    // let ref = () => this.textInput(index + 1);
+    if (index == 3 && val.length > 0) {
+      this.textInput5.current.focus();
+    }
+    if (index == 2 && val.length > 0) {
+      this.textInput4.current.focus();
+    }
+    if (index == 1 && val.length > 0) {
+      this.textInput3.current.focus();
+    }
+    if (index == 0 && val.length > 0) {
+      this.textInput2.current.focus();
+    }
     this.setState({ verifyPhoneCode: result });
   }
+
+  checkIfDisabled() {
+    const { verifyPhoneCode } = this.state;
+    if (verifyPhoneCode.length >= 6) {
+      return false
+    }
+    else {
+      return true
+    }
+  }
+
+
+
+
   render() {
     const { verifyPhoneCode } = this.state;
-
+    const { history } = this.props;
+    const { phone } = history.location.state;
+    this.stopCounter();
     return (
       <div className="veryify_phone">
         <LeftCard>
@@ -67,20 +98,10 @@ class VeryifyPhone extends Component {
             <p>Please enter OTP code sent to </p>
             <div className="form-edit">
               <form onFinish={this.handleSubmit} >
-
-                <input value={this.state.phone}
-                  disabled={!this.state.isEditing}
-                  className={this.state.isEditing ? " " : "nonEditableField"}
-                  required
-                  onChange={(e) => { this.setState({ phone: e.target.value }) }} />
-
-                <button className="edit-btn" onClick={(e) => {
-                  e.preventDefault()
-                  this.setState({ isEditing: !this.state.isEditing })
-                }}>
+                <p className={"nonEditableField"}>{phone}</p>
+                <button className="edit-btn" onClick={(e) => { history.push('EnterPhone', { phone }) }}>
                   Edit phone number
                  </button>
-
               </form>
 
             </div>
@@ -88,83 +109,68 @@ class VeryifyPhone extends Component {
           </div>
           <div className="form-verify">
             <Form onFinish={this.handleSubmit}>
-
-              <Form.Item
-
-              >
+              <Form.Item>
                 <Input
-                  onChange={(e) =>
-                    this.changeNumbers(0, e.target.value)
-                  }
+                  onChange={(e) => this.changeNumbers(0, e.target.value)}
                   value={verifyPhoneCode[0]}
-                  ref={this.textInput6}
-                />
-              </Form.Item>
-              <Form.Item>
-                <Input
-                  onChange={(e) =>
-                    this.changeNumbers(1, e.target.value)
-                  }
-                  value={verifyPhoneCode[1]}
-                  ref={this.textInput5}
-                />
-              </Form.Item>
-              <Form.Item
-
-              >
-                <Input
-                  onChange={(e) =>
-                    this.changeNumbers(2, e.target.value)
-                  }
-                  value={verifyPhoneCode[2]}
-                  ref={this.textInput4}
-                />
-              </Form.Item>
-              <Form.Item>
-                <Input
-                  onChange={(e) =>
-                    this.changeNumbers(3, e.target.value)
-                  }
-                  value={verifyPhoneCode[3]}
-                  ref={this.textInput3}
-                />
-              </Form.Item>
-              <Form.Item>
-                <Input
-                  onChange={(e) =>
-                    this.changeNumbers(4, e.target.value)
-                  }
-                  value={verifyPhoneCode[4]}
-                  ref={this.textInput2}
-                />
-              </Form.Item>
-              <Form.Item>
-                <Input
-                  onChange={(e) =>
-                    this.changeNumbers(5, e.target.value)
-                  }
-                  value={verifyPhoneCode[5]}
                   ref={this.textInput1}
+                  maxlength={1}
                 />
               </Form.Item>
-
-
-              <Button className="verify-button" htmlType="submit">
-                Verify
-              </Button>
-
+              <Form.Item>
+                <Input
+                  onChange={(e) => this.changeNumbers(1, e.target.value)}
+                  value={verifyPhoneCode[1]}
+                  ref={this.textInput2}
+                  maxlength={1}
+                />
+              </Form.Item>
+              <Form.Item>
+                <Input
+                  onChange={(e) => this.changeNumbers(2, e.target.value)}
+                  value={verifyPhoneCode[2]}
+                  ref={this.textInput3}
+                  maxlength={1}
+                />
+              </Form.Item>
+              <Form.Item>
+                <Input
+                  onChange={(e) => this.changeNumbers(3, e.target.value)}
+                  value={verifyPhoneCode[3]}
+                  ref={this.textInput4}
+                  maxlength={1}
+                />
+              </Form.Item>
+              <Form.Item>
+                <Input
+                  onChange={(e) => this.changeNumbers(4, e.target.value)}
+                  value={verifyPhoneCode[4]}
+                  ref={this.textInput5}
+                  maxlength={1}
+                />
+              </Form.Item>
+              <Form.Item>
+                <Input
+                  onChange={(e) => this.changeNumbers(5, e.target.value)}
+                  value={verifyPhoneCode[5]}
+                  ref={this.textInput6}
+                  maxlength={1}
+                />
+              </Form.Item>
+              <Button className="verify-button" htmlType="submit" disabled={this.checkIfDisabled()}>Verify</Button>
             </Form>
           </div>
           <div className="resend">
             <p>Didn’t recieve OTP code?</p>
-            <p>You can resend code in <span>0:59 sec</span></p>
-            <p>Resend Code via</p>
+            <p>You can resend code in<span>0.{this.state.counter} sec</span></p>
+            <p >Resend Code</p>
+            <a onClick={() => { this.setState({ counter: 60 }) }} onClick={() => { this.setState({ counter: 60 }) }} ><FontAwesomeIcon icon={faWhatsapp} /><span>Whatsapp</span></a>
+            <a onClick={() => { this.setState({ counter: 60 }) }} className="call_me"><FontAwesomeIcon icon={faPhoneAlt} /><span>Call me</span></a>
+
             <div className="powrd_by">
               <img src={require("../../assests/Icons/group@2x.png")} />
               <span>Powered by WinFi</span>
             </div>
-            <a href="#"><FontAwesomeIcon icon={faPhoneAlt} /><span>Call me</span></a>
-            <p className="wats_app">or sedn code via watsapp</p>
           </div>
         </RightCard>
       </div>

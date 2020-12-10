@@ -66,7 +66,7 @@
             border: none;
             background-color: #fff;
             .ant-select {
-              width: 105px;
+              width: 115px;
               background-color: #fff;
               position: relative;
               &::after {
@@ -103,18 +103,25 @@
           margin-bottom: 32px;
           margin-top: 0;
         }
-        .next-button {
-          width: 364px;
+
+        button {
+          width: 348px;
+          height: 48px;
           border-radius: 4px;
           box-shadow: 0 2px 24px 0 rgba(153, 34, 44, 0.32);
           background-color: #980a2b;
-          color: #fff;
           font-size: 18px;
-          height: 64px;
-          margin-bottom: 16px;
-          display: block;
-          text-align: center;
-          line-height: 64px;
+          color: #fff;
+          font-family: "Poppins-Medium";
+          touch-action: none !important;
+          cursor: pointer;
+          &:focus,
+          &:hover {
+            outline: none;
+            border: none;
+            padding: 0;
+            transform: scale(1);
+          }
         }
       }
       .terms {
@@ -154,6 +161,7 @@
       padding-top: 32px;
       padding-left: 24px;
       padding-right: 32px;
+      padding-bottom: initial;
       h4 {
         font-size: 24px;
         margin-bottom: 8px;

@@ -44,14 +44,12 @@
       .form-edit {
         form {
           .nonEditableField {
-            border: none;
-            background: none;
-            cursor: default;
             font-size: 16px;
             color: #5f6367;
             font-family: "Poppins-Medium";
-            padding: 0;
-            width: 47%;
+            margin-left: 5px;
+            margin-bottom: 0;
+            display: inline;
           }
           .edit-btn {
             background: none;
@@ -120,6 +118,12 @@
           font-size: 16px;
           font-family: "Poppins-Medium";
         }
+
+        &:last-of-type {
+          color: #000000;
+          font-size: 18px;
+          margin-bottom: 8px;
+        }
         &:nth-of-type(2) {
           font-size: 18px;
           color: #000000;
@@ -130,13 +134,10 @@
             font-family: "Poppins-SemiBold";
           }
         }
-        &:last-of-type {
-          display: none;
-        }
       }
       .powrd_by {
-        margin-top: 0px;
-        margin-bottom: 44px;
+        margin-top: 20px;
+        margin-bottom: 0px;
         img {
           width: 24px;
           height: 24px;
@@ -148,9 +149,45 @@
           color: #198180;
         }
       }
-      a,
-      .wats_app {
-        display: none;
+      a {
+        display: inline-block;
+        border: 1px solid #99222c;
+        width: 149px;
+        height: 47px;
+        color: #000000;
+        text-align: center;
+        line-height: 47px;
+        font-size: 16px;
+        font-family: "Poppins-Medium";
+        position: relative;
+        &:last-of-type {
+          margin-left: 15px;
+          &::before {
+            position: absolute;
+            top: 9px;
+            left: 36px;
+            content: "...";
+            width: 2px;
+            width: 16px;
+            display: block;
+            height: 11px;
+            line-height: 0px;
+            padding: 3px 2px 6px;
+            background-color: #eeefee;
+          }
+        }
+
+        .svg-inline--fa.fa-w-16,
+        .fa-whatsapp {
+          width: 20px;
+          height: 20px;
+        }
+        .fa-whatsapp {
+          color: #4caf50;
+        }
+        span {
+          margin-left: 12px;
+        }
       }
     }
   }
@@ -207,7 +244,7 @@
           }
         }
         .verify-button {
-          width: 100% !important;
+          // width: 100% !important;
         }
       }
       .resend {
@@ -268,6 +305,14 @@
           margin-top: 20px;
           margin-bottom: 0px;
           font-size: 14px;
+        }
+        a {
+          display: block;
+          margin: auto;
+          &:last-of-type {
+            margin-left: auto;
+            margin-top: 20px;
+          }
         }
       }
     }

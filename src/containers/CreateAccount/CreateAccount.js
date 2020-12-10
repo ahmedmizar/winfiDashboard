@@ -14,9 +14,14 @@ class CreateAccount extends Component {
     password: "",
     isLogin: false,
   };
+
+
+  submit = () => {
+    const { history } = this.props;
+  }
+
+
   render() {
-
-
     return (
       <div className="create_ccount">
         <LeftCard>
@@ -77,7 +82,7 @@ class CreateAccount extends Component {
 
 
               <Form.Item>
-                <button className="next-button" htmlType="submit">
+                <button className="next-button" htmlType="submit" onClick={() => { this.submit() }}>
                   Next
                   </button>
               </Form.Item>
