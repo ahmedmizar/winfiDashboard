@@ -1,27 +1,23 @@
 import React, { Component } from "react";
-import { Button, Input, Form, Select } from "antd";
+import { Input, Form } from "antd";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import "./CreateAccount.scss"
-const { Option } = Select;
 class CreateAccount extends Component {
   state = {
     user_name: "",
     email: "",
-    password: "",
     isLogin: false,
   };
 
-
   submit = () => {
     const { history } = this.props;
+    history.push('createAccount2')
   }
 
 
   render() {
+    const { user_name, email } = this.state;
     return (
       <div className="create_ccount">
         <LeftCard>
@@ -33,13 +29,7 @@ class CreateAccount extends Component {
           <p>We need this info to send you our exclusive enjoyable offers</p>
           <p>Or create account with email</p>
           <div className="create_form">
-
-            <Form
-
-              className="createform"
-              name="basic"
-            >
-
+            <Form className="createform" name="basic" onFinish={this.submit}>
               <Form.Item
                 name="email"
                 rules={[
@@ -54,9 +44,7 @@ class CreateAccount extends Component {
                 ]}
               >
                 <Input
-                  onChange={(e) =>
-                    this.setState({ email: e.target.value })
-                  }
+                  onChange={(e) => this.setState({ email: e.target.value })}
                   value={this.state.email}
                   placeholder="Email address"
                 />
@@ -68,13 +56,10 @@ class CreateAccount extends Component {
                     required: true,
                     message: "Please input your username!",
                   },
-
                 ]}
               >
                 <Input
-                  onChange={(e) =>
-                    this.setState({ user_name: e.target.value })
-                  }
+                  onChange={(e) => this.setState({ user_name: e.target.value })}
                   value={this.state.user_name}
                   placeholder="Full Name"
                 />
@@ -82,11 +67,8 @@ class CreateAccount extends Component {
 
 
               <Form.Item>
-                <button className="next-button" htmlType="submit" onClick={() => { this.submit() }}>
-                  Next
-                  </button>
+                <button className="next-button" htmlType="submit" disabled={user_name.length == 0 || email.length == 0} >Next</button>
               </Form.Item>
-
             </Form>
             <div className="wifi">
               <img src={require("../../assests/Icons/group-71@2x.png")} />

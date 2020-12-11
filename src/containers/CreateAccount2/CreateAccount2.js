@@ -16,9 +16,15 @@ class CreateAccount2 extends Component {
 
   };
 
+  NumberReg = /^[0-9\b]+$/;
 
   submit = () => {
     const { history } = this.props;
+  }
+
+  GoBack() {
+    const { history } = this.props;
+    history.push('createAccount')
   }
 
 
@@ -70,31 +76,38 @@ class CreateAccount2 extends Component {
               <div className="dateof_birth">
                 <Form.Item
                   name="month"
+                  style={{ width: '30%' }}
                   rules={[
                     {
                       required: true,
-                      message: "Please input your month!",
+                      message: "Field is required",
                     },
-
+                    {
+                      pattern: new RegExp(/^[0-9\b]+$/),
+                      message: "Only Numbers!"
+                    }
                   ]}
                 >
                   <Input
-                    onChange={(e) =>
-                      this.setState({ month: e.target.value })
-                    }
+                    onChange={(e) => { this.setState({ month: e.target.value }) }}
                     value={this.state.month}
-                    maxLength={1}
+                    maxLength={2}
                     placeholder="Month"
                   />
                 </Form.Item>
                 <Form.Item
                   name="day"
+                  style={{ width: '30%' }}
+
                   rules={[
                     {
                       required: true,
-                      message: "Please input your day!",
+                      message: "This field is required!",
                     },
-
+                    {
+                      pattern: new RegExp(/^[0-9\b]+$/),
+                      message: "Only Numbers!"
+                    }
                   ]}
                 >
                   <Input
@@ -112,10 +125,15 @@ class CreateAccount2 extends Component {
                   rules={[
                     {
                       required: true,
-                      message: "Please input your day!",
+                      message: "This field is required!",
                     },
+                    {
+                      pattern: new RegExp(/^[0-9\b]+$/),
+                      message: "Only Numbers!"
+                    }
 
                   ]}
+                  style={{ width: '30%' }}
                 >
                   <Input
                     onChange={(e) =>
@@ -154,7 +172,7 @@ class CreateAccount2 extends Component {
                 </Form.Item>
               </div>
               <Form.Item>
-                <button className="back">Go Back</button>
+                <button className="back" onClick={() => { this.GoBack() }}>Go Back</button>
                 <button className="submit" htmlType="submit" onClick={() => { this.submit() }}>
                   Done!
                 </button>
@@ -164,13 +182,13 @@ class CreateAccount2 extends Component {
 
           </div>
           <div className="wifi">
-              <img src={require("../../assests/Icons/group-71@2x.png")} />
-              <p>One Account.<br />Endless Wifi in +100 places</p>
-              <div className="powrd_by">
-                <img src={require("../../assests/Icons/group@2x.png")} />
-                <span>Powered by WinFi</span>
-              </div>
+            <img src={require("../../assests/Icons/group-71@2x.png")} />
+            <p>One Account.<br />Endless Wifi in +100 places</p>
+            <div className="powrd_by">
+              <img src={require("../../assests/Icons/group@2x.png")} />
+              <span>Powered by WinFi</span>
             </div>
+          </div>
         </RightCard>
       </div>
     )

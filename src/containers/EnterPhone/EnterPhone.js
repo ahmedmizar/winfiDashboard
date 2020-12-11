@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Input, Form, Select } from "antd";
+import { Form, Select } from "antd";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
 import "./EnterPhone.scss"
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 
-const { Option } = Select;
 class EnterPhone extends Component {
 
   constructor(props) {

@@ -22,12 +22,19 @@ class VeryifyPhone extends Component {
       verifyPhoneCode: [],
       finalCode: "",
       isEdit: false,
-      counter: 60
+      counter: 60,
+      phone: ''
 
     };
   }
 
   componentDidMount() {
+    const { history } = this.props;
+    if (history.location.state) {
+      const { phone } = history.location.state;
+      this.setState({ phone })
+    }
+
     this.textInput1.current.focus();
     this.myInterval = setInterval(() => {
       this.setState(({ counter }) => ({
@@ -81,9 +88,8 @@ class VeryifyPhone extends Component {
 
 
   render() {
-    const { verifyPhoneCode, counter } = this.state;
+    const { verifyPhoneCode, counter, phone } = this.state;
     const { history } = this.props;
-    const { phone } = history.location.state;
     this.stopCounter();
     return (
       <div className="veryify_phone">
