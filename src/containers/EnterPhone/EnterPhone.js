@@ -3,17 +3,20 @@ import { Input, Form, Select } from "antd";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
 import "./EnterPhone.scss"
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+
 const { Option } = Select;
 class EnterPhone extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       phone: '',
       selectedCountry: '+20',
       initialValues: {
         prefix: '86',
-        phone: ''
       }
     };
   };
@@ -23,36 +26,30 @@ class EnterPhone extends Component {
   }
 
   async checkPhoneNumber() {
-    // const { location } = this.props;
-    // if (location.state && location.state.phone) {
-    //   await this.setState({
-    //     phone: location.state.phone.toString(), initialValues: {
-    //       ...this.state.initialValues,
-    //       phone: location.state.phone.toString()
-    //     }
-    //   })
-    // }
+    const { location } = this.props;
+    if (location.state && location.state.phone) {
+      await this.setState({
+        phone: location.state.phone
+      })
+    }
   }
 
 
   submit = () => {
     const { history } = this.props;
-    const { phone, selectedCountry } = this.state;
-    history.push('veryifyPhone', { phone: selectedCountry + phone })
+    const { phone } = this.state;
+    history.push('veryifyPhone', { phone })
   }
 
+  setValue(e) {
+    if (e != undefined) this.setState({ phone: e })
+    else {
+      this.setState({ phone: '' })
+    }
+  }
 
   render() {
     const { phone } = this.state;
-    const prefixSelector = (
-      <Form.Item name="prefix" noStyle>
-        <Select onChange={(value) => { this.setState({ selectedCountry: value }) }}>
-          <Option value="86"><img src={require("../../assests/Icons/flag-400.png")} /> +20</Option>
-          <Option value="87"><img src={require("../../assests/Icons/saudi_arabia.png")} /> +966</Option>
-        </Select>
-      </Form.Item>
-    );
-
     return (
       <div className="enter_phone">
         <LeftCard>
@@ -69,23 +66,12 @@ class EnterPhone extends Component {
             <p>Enter your mobile Phone number</p>
             <div className="form-container">
               <Form onFinish={this.handleSubmit} initialValues={this.state.initialValues}>
-                <Form.Item
-                  name="phone"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input your phone number!",
-                    },
-                  ]}
-                >
-                  <Input
-                    addonBefore={prefixSelector}
-                    onChange={(e) => this.setState({ phone: e.target.value })}
-                    placeholder="رقم الهاتف"
-                    value={phone}
-                    defaultValue={phone}
-                  />
-                </Form.Item>
+                <PhoneInput
+                  placeholder="Enter phone number"
+                  value={phone}
+                  onChange={(e) => { this.setValue(e) }}
+                  defaultCountry={'EG'}
+                />
                 <p>We will send you an OTP code via SMS.</p>
                 <Form.Item>
                   <button className="next-button" htmlType="submit" onClick={() => { this.submit() }} disabled={phone.length < 6}>Continue</button>

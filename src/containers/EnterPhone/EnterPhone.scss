@@ -23,6 +23,36 @@
     padding-top: 27.5vh;
     padding-left: 146px;
     padding-bottom: 34.1vh;
+    .PhoneInput {
+      width: 384px;
+      height: 56px;
+      line-height: 56px;
+      border: 1px solid #dadcdf;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      input {
+        width: 384px;
+        height: 50px;
+        line-height: 56px;
+        border: 0;
+        &:focus {
+          outline: none;
+        }
+      }
+      .PhoneInputCountry {
+        border: 0;
+        margin: 13px 20px 20px 20px;
+        height: 30px;
+        border-right: 2px solid #dad8d8;
+        padding-right: 19px;
+      }
+      .PhoneInputCountrySelectArrow {
+        width: 7px;
+        height: 7px;
+        margin-left: 10px;
+        margin-bottom: 2px;
+      }
+    }
     h4 {
       color: #000000;
       font-family: "Poppins-SemiBold";
@@ -162,6 +192,9 @@
       padding-left: 24px;
       padding-right: 32px;
       padding-bottom: initial;
+      .PhoneInput {
+        width: auto !important;
+      }
       h4 {
         font-size: 24px;
         margin-bottom: 8px;

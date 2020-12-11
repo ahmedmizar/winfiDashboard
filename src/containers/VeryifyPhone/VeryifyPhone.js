@@ -68,8 +68,8 @@ class VeryifyPhone extends Component {
   }
 
   checkIfDisabled() {
-    const { verifyPhoneCode } = this.state;
-    if (verifyPhoneCode.length >= 6) {
+    const { verifyPhoneCode, counter } = this.state;
+    if (verifyPhoneCode.length >= 6 && counter != 0) {
       return false
     }
     else {
@@ -81,7 +81,7 @@ class VeryifyPhone extends Component {
 
 
   render() {
-    const { verifyPhoneCode } = this.state;
+    const { verifyPhoneCode, counter } = this.state;
     const { history } = this.props;
     const { phone } = history.location.state;
     this.stopCounter();
@@ -156,10 +156,14 @@ class VeryifyPhone extends Component {
           <div className="resend">
             <p>Didn’t recieve OTP code?</p>
             <p>You can resend code in<span>0.{this.state.counter} sec</span></p>
-            <p >Resend Code</p>
-            <a onClick={() => { this.setState({ counter: 60 }) }} onClick={() => { this.setState({ counter: 60 }) }} ><FontAwesomeIcon icon={faWhatsapp} /><span>Whatsapp</span></a>
-            <a onClick={() => { this.setState({ counter: 60 }) }} className="call_me"><FontAwesomeIcon icon={faPhoneAlt} /><span>Call me</span></a>
 
+            {counter == 0 &&
+              <React.Fragment>
+                <p >Resend Code</p>
+                <a onClick={() => { this.setState({ counter: 60 }) }} onClick={() => { this.setState({ counter: 60 }) }} ><FontAwesomeIcon icon={faWhatsapp} /><span>Whatsapp</span></a>
+                <a onClick={() => { this.setState({ counter: 60 }) }} className="call_me"><FontAwesomeIcon icon={faPhoneAlt} /><span>Call me</span></a>
+              </React.Fragment>
+            }
             <div className="powrd_by">
               <img src={require("../../assests/Icons/group@2x.png")} />
               <span>Powered by WinFi</span>
