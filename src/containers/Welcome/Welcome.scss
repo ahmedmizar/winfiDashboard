@@ -1,0 +1,192 @@
+.welcome {
+  display: flex;
+  width: 100%;
+  .left {
+    padding-top: 27.5vh;
+    padding-left: 56px;
+    img {
+      width: 188px;
+      height: 49px;
+    }
+    p {
+      color: #fff;
+      font-family: "Poppins-SemiBold";
+      margin: 30px 0 0;
+      font-size: 35px;
+      letter-spacing: normal;
+      font-weight: 600;
+      padding-right: 132px;
+      line-height: 40px;
+    }
+  }
+  .right {
+    padding-top: 30.1vh;
+    padding-left: 146px;
+    h4 {
+      color: #000000;
+      font-family: "Poppins-SemiBold";
+      font-size: 32px;
+      letter-spacing: 0;
+      font-weight: 600;
+      margin-bottom: 0;
+      line-height: 40px;
+    }
+    .connect {
+      margin-top: 24px;
+      font-size: 18px;
+      font-family: "Poppins-Medium";
+      button {
+        width: 346px;
+        height: 64px;
+        border-radius: 4px;
+        box-shadow: 0 2px 24px 0 rgba(153, 34, 44, 0.32);
+        background-color: #980a2b;
+        color: #fff;
+        touch-action: none !important;
+        border: none;
+        cursor: pointer;
+        &:focus,
+        &:hover {
+          outline: none;
+          border: none;
+          padding: 0;
+          transform: scale(1);
+        }
+      }
+      span {
+        color: #99222c;
+        margin-left: 50px;
+      }
+    }
+    .wifi {
+      width: 535px;
+      height: 223px;
+      margin: 32px 0 0;
+
+      border-radius: 8px;
+      border: solid 1px #ececec;
+      background-color: #ffffff;
+      display: flex;
+      
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-top: 40px;
+      .power {
+        margin-right: 42px;
+        img {
+          width: 125px;
+          height: 102px;
+        }
+        .powrd_by {
+          margin-top: 24px;
+          margin-bottom: 0px;
+          img {
+            width: 24px;
+            height: 24px;
+            margin: 0 2px 0 0;
+          }
+          span {
+            margin: 4px 0 4px 2px;
+            font-size: 11px;
+            color: #198180;
+          }
+        }
+      }
+      .info {
+        padding-top: 16px;
+        p {
+          font-size: 16px;
+          color: #0b0b0b;
+          margin-bottom: 12px;
+          font-family: "Poppins-Medium";
+        }
+        button {
+          width: 183px;
+          height: 48px;
+          font-size: 16px;
+          color: #000000;
+          border-radius: 4px;
+          border: solid 1px #99222c;
+          background: #fff;
+          font-family: "Poppins-Medium";
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.ant-select-item-option-content {
+  img {
+    width: 24px;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  .welcome {
+    flex-direction: column;
+    .left {
+      padding-top: 131px;
+      width: 100%;
+      height: 289px;
+      padding-left: 0;
+      text-align: center;
+      p {
+        font-size: 24px;
+        padding-right: 0;
+        margin-top: 16px;
+      }
+    }
+    .right {
+      width: 100%;
+      padding-top: 48px;
+      padding-left: 16px;
+      padding-right: 16px;
+      h4 {
+        font-size: 24px;
+        margin-bottom: 8px;
+        line-height: 30px;
+        text-align: center;
+      }
+      .connect  {
+       
+        button {
+          width: 100%;
+          margin-bottom: 24px;
+        }
+        span {
+          display: block;
+          margin-left: 0;
+          text-align: center;
+        }
+      }
+      .wifi {
+        margin-top: 35px;
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        padding-top: 32px;
+        .power {
+          margin-right: 0px;
+        }
+        .info {
+          padding-top: 5px;
+          margin-right: 36px;
+          p {
+            margin-bottom: 16px;
+          }
+        }
+      }
+     
+     
+    }
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 413px) {
+  .welcome .right .wifi {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .welcome .right .wifi .info {
+    margin-right: 0px;
+    padding-right: 10px;
+  }
+}
