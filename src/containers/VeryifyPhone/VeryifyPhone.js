@@ -95,17 +95,10 @@ class VeryifyPhone extends Component {
           <h4>Phone number verification</h4>
 
           <div className="edit_your_mobile">
-            <p>Please enter OTP code sent to </p>
-            <div className="form-edit">
-              <form onFinish={this.handleSubmit} >
-                <p className={"nonEditableField"}>{phone}</p>
-                <button className="edit-btn" onClick={(e) => { history.push('EnterPhone', { phone }) }}>
-                  Edit phone number
-                 </button>
-              </form>
-
-            </div>
-
+            <p>Please enter OTP code sent to <span>{phone}</span></p>
+            <button className="edit-btn" onClick={(e) => { history.push('EnterPhone', { phone }) }}>
+              Edit phone number
+            </button>
           </div>
           <div className="form-verify">
             <Form onFinish={this.handleSubmit}>

@@ -34,37 +34,36 @@
     }
 
     .edit_your_mobile {
-      display: flex;
+      margin-bottom: 32px;
       p {
+        display: inline-block;
         font-size: 16px;
-        color: #5f6367;
+        color: #6c6c6c;
         font-family: "Poppins-Medium";
-        margin-bottom: 32px;
-      }
-      .form-edit {
-        form {
-          .nonEditableField {
-            font-size: 16px;
-            color: #5f6367;
+        margin-bottom: 0px;
+        .phone {
+          font-size: 16px;
+          
             font-family: "Poppins-Medium";
             margin-left: 5px;
             margin-bottom: 0;
             display: inline;
-          }
-          .edit-btn {
-            background: none;
-            border: none;
-            color: #99222c;
-            font-size: 14px;
-            font-weight: 600;
-            font-family: "Poppins-SemiBold";
-            cursor: pointer;
-            &:focus {
-              outline: none;
-            }
-          }
         }
       }
+      .edit-btn {
+        background: none;
+        border: none;
+        color: #99222c;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: "Poppins-SemiBold";
+        padding-left: 8px;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+     
     }
     .form-verify {
       .ant-form {
@@ -222,10 +221,14 @@
         margin-bottom: 8px;
         line-height: 30px;
       }
+      .edit_your_mobile .edit-btn {
+        padding: 0;
+      }
       .powrd_by {
         margin-bottom: 24px;
       }
       .form-verify {
+        text-align: center;
         .ant-form {
           .ant-form-item {
             margin-bottom: 32px !important;
@@ -244,7 +247,7 @@
           }
         }
         .verify-button {
-          // width: 100% !important;
+          width: 100% !important;
         }
       }
       .resend {
@@ -279,19 +282,6 @@
           font-family: "Poppins-Medium";
 
           position: relative;
-          &::before {
-            position: absolute;
-            top: 9px;
-            left: 36px;
-            content: "...";
-            width: 2px;
-            width: 16px;
-            display: block;
-            height: 11px;
-            line-height: 0px;
-            padding: 3px 2px 6px;
-            background-color: #eeefee;
-          }
           .svg-inline--fa.fa-w-16 {
             width: 20px;
             height: 20px;

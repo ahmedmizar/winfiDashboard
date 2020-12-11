@@ -1,5 +1,9 @@
 .right {
     width: 65.9%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #ffffff;
+    @media only screen and (max-width: 767.98px) {
+        min-height: auto;
+        padding-bottom: 30px !important;
+    }
 }
