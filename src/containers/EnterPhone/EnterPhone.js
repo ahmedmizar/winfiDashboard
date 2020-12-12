@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {connect} from "react-redux"
 import { Form, Select } from "antd";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
@@ -41,6 +42,7 @@ class EnterPhone extends Component {
   }
 
   setValue(e) {
+    console.log(e)
     if (e != undefined) this.setState({ phone: e })
     else {
       this.setState({ phone: '' })
@@ -49,11 +51,13 @@ class EnterPhone extends Component {
 
   render() {
     const { phone } = this.state;
+    const {data} = this.props
+    console.log(this.props.data)
     return (
-      <div className="enter_phone">
-        <LeftCard>
-          <img src={require("../../assests/images/Costa_logo.png")} />
-          <p>Welcome to, Costa</p>
+      <div className="enter_phone" >
+        <LeftCard style={{backgroundColor: `${data.displayColor}`}}>
+          {/* <img src={require("../../assests/images/Costa_logo.png")} />
+          <p>Welcome to, Costa</p> */}
         </LeftCard>
         <RightCard>
           <h4>Connect to internet absolutely free</h4>
@@ -73,7 +77,7 @@ class EnterPhone extends Component {
                 />
                 <p>We will send you an OTP code via SMS.</p>
                 <Form.Item>
-                  <button className="next-button" htmlType="submit" onClick={() => { this.submit() }} disabled={phone.length < 6}>Continue</button>
+                  <button className="next-button" htmlType="submit" onClick={() => { this.submit() }} disabled={phone.length < 6} style={{ backgroundColor: `${data.displayColor}` }}>Continue</button>
                 </Form.Item>
               </Form>
             </div>
@@ -84,5 +88,11 @@ class EnterPhone extends Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  
+  return {
+    data: state.brandData.brandData
+  }
+}
 
-export default EnterPhone;
+export default connect(mapStateToProps)(EnterPhone);

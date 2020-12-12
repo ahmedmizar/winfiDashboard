@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
 import "./Welcome.scss"
@@ -17,17 +18,18 @@ class Welcome extends Component {
 
 
   render() {
+    const {data} = this.props
     return (
       <div className="welcome">
         <LeftCard>
-          <img src={require("../../assests/images/Costa_logo.png")} />
-          <p>Welcome to, Costa</p>
+          {/* <img src={require("../../assests/images/Costa_logo.png")} />
+          <p>Welcome to, Costa</p> */}
         </LeftCard>
         <RightCard>
           <h4>Welocme back, Mina Naguib!</h4>
           <div className="connect">
-            <button>Conect to Internet</button>
-            <span style={{ cursor: 'pointer' }}>This is not me</span>
+            <button style={{ backgroundColor: `${data.displayColor}` }}>Conect to Internet</button>
+            <span style={{ cursor: 'pointer',color: `${data.displayColor}` }}>This is not me</span>
           </div>
           <div className="wifi">
             <div className="power">
@@ -39,7 +41,7 @@ class Welcome extends Component {
             </div>
             <div className="info">
               <p>Want to more about connected devices and internet speed?</p>
-              <button>View acount info</button>
+              <button style={{borderColor: `${data.displayColor}`}}>View acount info</button>
             </div>
           </div>
 
@@ -49,5 +51,12 @@ class Welcome extends Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  
+  return {
+    data: state.brandData.brandData
+  }
+}
 
-export default Welcome;
+export default connect(mapStateToProps)(Welcome);
+

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
 import { Button, Input, Form, Select } from "antd";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
@@ -89,20 +90,20 @@ class VeryifyPhone extends Component {
 
   render() {
     const { verifyPhoneCode, counter, phone } = this.state;
-    const { history } = this.props;
+    const { history, data } = this.props;
     this.stopCounter();
     return (
       <div className="veryify_phone">
         <LeftCard>
-          <img src={require("../../assests/images/Costa_logo.png")} />
-          <p>Welcome to, Costa</p>
+          {/* <img src={require("../../assests/images/Costa_logo.png")} />
+          <p>Welcome to, Costa</p> */}
         </LeftCard>
         <RightCard>
           <h4>Phone number verification</h4>
 
           <div className="edit_your_mobile">
             <p>Please enter OTP code sent to <span>{phone}</span></p>
-            <button className="edit-btn" onClick={(e) => { history.push('EnterPhone', { phone }) }}>
+            <button className="edit-btn" onClick={(e) => { history.push('EnterPhone', { phone }) }} style={{ color: `${data.displayColor}` }}>
               Edit phone number
             </button>
           </div>
@@ -156,18 +157,18 @@ class VeryifyPhone extends Component {
                   maxlength={1}
                 />
               </Form.Item>
-              <Button className="verify-button" htmlType="submit" disabled={this.checkIfDisabled()}>Verify</Button>
+              <Button className="verify-button" htmlType="submit" disabled={this.checkIfDisabled()} style={{ backgroundColor: `${data.displayColor}` }}>Verify</Button>
             </Form>
           </div>
           <div className="resend">
             <p>Didn’t recieve OTP code?</p>
-            <p>You can resend code in<span>0.{this.state.counter} sec</span></p>
+            <p>You can resend code in<span style={{color: `${data.displayColor}` }}>0.{this.state.counter} sec</span></p>
 
             {counter == 0 &&
               <React.Fragment>
                 <p >Resend Code</p>
-                <a onClick={() => { this.setState({ counter: 60 }) }} onClick={() => { this.setState({ counter: 60 }) }} ><FontAwesomeIcon icon={faWhatsapp} /><span>Whatsapp</span></a>
-                <a onClick={() => { this.setState({ counter: 60 }) }} className="call_me"><FontAwesomeIcon icon={faPhoneAlt} /><span>Call me</span></a>
+                <a onClick={() => { this.setState({ counter: 60 }) }} onClick={() => { this.setState({ counter: 60 }) }} style={{ borderColor: `${data.displayColor}` }}><FontAwesomeIcon icon={faWhatsapp} /><span>Whatsapp</span></a>
+                <a onClick={() => { this.setState({ counter: 60 }) }} className="call_me" style={{ borderColor: `${data.displayColor}` }}><FontAwesomeIcon icon={faPhoneAlt} /><span>Call me</span></a>
               </React.Fragment>
             }
             <div className="powrd_by">
@@ -181,4 +182,12 @@ class VeryifyPhone extends Component {
   }
 }
 
-export default VeryifyPhone;
+const mapStateToProps = (state) => {
+  
+  return {
+    data: state.brandData.brandData
+  }
+}
+
+export default connect(mapStateToProps)(VeryifyPhone);
+

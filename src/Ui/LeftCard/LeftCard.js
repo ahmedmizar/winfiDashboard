@@ -1,15 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from "react-redux"
 import "./LeftCard.scss"
- 
+
 const leftCard = (props) => {
     return (
-        <div className="left">
-            {props.children}
+        <div className="left" style={{ backgroundColor: `${props.data.displayColor}` }}>
+            <img src={require("../../assests/images/Costa_logo.png")} />
+            <p>{props.data.displayDesc}</p>
         </div>
     );
 }
- 
-leftCard.propTypes = {};
- 
-export default leftCard;
+
+const mapStateToProps = (state) => {
+
+    return {
+        data: state.brandData.brandData
+    }
+}
+
+export default connect(mapStateToProps)(leftCard);

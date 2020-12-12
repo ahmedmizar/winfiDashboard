@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
 import { Input, Form } from "antd";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
@@ -18,11 +19,10 @@ class CreateAccount extends Component {
 
   render() {
     const { user_name, email } = this.state;
+    const {data} = this.props
     return (
       <div className="create_ccount">
         <LeftCard>
-          <img src={require("../../assests/images/Costa_logo.png")} />
-          <p>Welcome to, Costa</p>
         </LeftCard>
         <RightCard>
           <h4>Create your account</h4>
@@ -67,7 +67,7 @@ class CreateAccount extends Component {
 
 
               <Form.Item>
-                <button className="next-button" htmlType="submit" disabled={user_name.length == 0 || email.length == 0} >Next</button>
+                <button className="next-button" htmlType="submit" disabled={user_name.length == 0 || email.length == 0} style={{ backgroundColor: `${data.displayColor}` }}>Next</button>
               </Form.Item>
             </Form>
             <div className="wifi">
@@ -85,5 +85,12 @@ class CreateAccount extends Component {
     )
   }
 }
+const mapStateToProps = (state) => {
 
-export default CreateAccount;
+  return {
+      data: state.brandData.brandData
+  }
+}
+
+export default connect(mapStateToProps)(CreateAccount);
+

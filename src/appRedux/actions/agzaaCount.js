@@ -5,15 +5,15 @@ import {
   FETCH_AGZAACOUNT_SUCCESS,
   FETCH_AGZAACOUNT_FAILURE
 } from "../../constants/lockupTypes";
-export const fetchAgzaaCountRequest = () => {
+export const fetchBrandDataRequest = () => {
   return {
     type: FETCH_AGZAACOUNT_REQUEST,
   };
 };
-export const fetchAgzaaCountSuccess = (agzaaCount) => {
+export const fetchAgzaaCountSuccess = (payload) => {
   return {
     type: FETCH_AGZAACOUNT_SUCCESS,
-    payload: agzaaCount,
+    payload: payload,
   };
 };
 export const fetchAgzaaCountFailure = (error) => {
@@ -22,17 +22,17 @@ export const fetchAgzaaCountFailure = (error) => {
     payload: error,
   };
 };
-export const fetchAgzaaCount = () => {
-  return async (dispatch) => {
-    dispatch(fetchAgzaaCountRequest());
-    await HtttpGetDefult("getLockup").then((response) => {
-      if (response.message.length > 0) {
-        dispatch(fetchAgzaaCountFailure(response.message));
-        dispatch(alertActions.error(response.message));
-      } else {
-        dispatch(fetchAgzaaCountSuccess(response.data.agzaaCount));
-        console.log(response);
-      }
-    });
-  };
-};
+// export const fetchAgzaaCount = () => {
+//   return async (dispatch) => {
+//     dispatch(fetchAgzaaCountRequest());
+//     await HtttpGetDefult("getLockup").then((response) => {
+//       if (response.message.length > 0) {
+//         dispatch(fetchAgzaaCountFailure(response.message));
+//         dispatch(alertActions.error(response.message));
+//       } else {
+//         dispatch(fetchAgzaaCountSuccess(response.data.agzaaCount));
+//         console.log(response);
+//       }
+//     });
+//   };
+// };

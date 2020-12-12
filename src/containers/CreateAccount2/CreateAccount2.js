@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Button, Input, Form, Select, Radio, Checkbox } from "antd";
+import { connect } from 'react-redux';
+import { Button, Input, Form, Radio, Checkbox } from "antd";
 import LeftCard from "../../Ui/LeftCard/LeftCard"
 import RightCard from "../../Ui/RightCard/RightCard"
-
 import "./CreateAccount2.scss"
-const { Option } = Select;
+
+
 // const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 class CreateAccount2 extends Component {
   state = {
@@ -13,7 +14,7 @@ class CreateAccount2 extends Component {
     month: "",
     year: "",
     gender: "",
-
+    styleChecked: ""
   };
 
   NumberReg = /^[0-9\b]+$/;
@@ -28,13 +29,14 @@ class CreateAccount2 extends Component {
   }
 
 
+
+
   render() {
-    console.log(this.state.gender)
+    const { data } = this.props
+
     return (
       <div className="create_ccount2">
         <LeftCard>
-          <img src={require("../../assests/images/Costa_logo.png")} />
-          <p>Welcome to, Costa</p>
         </LeftCard>
         <RightCard>
           <h4>Create your account</h4>
@@ -155,25 +157,26 @@ class CreateAccount2 extends Component {
                     onChange={(e) =>
                       this.setState({ gender: e.target.value })
                     }
+
                   >
-                    <Radio value="male">
+                    <Radio value="male" onClick={(e) => this.setState({ styleChecked: e.target.value })} style={this.state.styleChecked == "male" ? { borderColor: `${data.displayColor}` } : null}>
                       <img src={require("../../assests/Icons/male@2x.png")} /> <span className="text">Male</span>
                     </Radio>
-                    <Radio value="femal">
+                    <Radio value="femal" onClick={(e) => this.setState({ styleChecked: e.target.value })} style={this.state.styleChecked == "femal" ? { borderColor: `${data.displayColor}` } : null}>
                       <img src={require("../../assests/Icons/female@2x.png")} /> <span className="text">Femal</span>
                     </Radio>
 
                   </Radio.Group>
                 </Form.Item>
                 <Form.Item >
-                  <Checkbox onChange={(e) => { console.log(e.target.checked) }}>
+                  <Checkbox onChange={(e) => { console.log(e.target.checked) }} >
                     Or “I prefer not to tell my gender”
                   </Checkbox>
                 </Form.Item>
               </div>
               <Form.Item>
-                <button className="back" onClick={() => { this.GoBack() }}>Go Back</button>
-                <button className="submit" htmlType="submit" onClick={() => { this.submit() }}>
+                <button className="back" onClick={() => { this.GoBack() }} style={{ color: `${data.displayColor}` }}>Go Back</button>
+                <button className="submit" htmlType="submit" onClick={() => { this.submit() }} style={{ backgroundColor: `${data.displayColor}` }}>
                   Done!
                 </button>
               </Form.Item>
@@ -194,5 +197,11 @@ class CreateAccount2 extends Component {
     )
   }
 }
+const mapStateToProps = (state) => {
 
-export default CreateAccount2;
+  return {
+    data: state.brandData.brandData
+  }
+}
+
+export default connect(mapStateToProps)(CreateAccount2);

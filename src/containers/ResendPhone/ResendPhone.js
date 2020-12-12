@@ -58,8 +58,6 @@ class ResendPhone extends Component {
     return (
       <div className="resend_phone">
         <LeftCard>
-          <img src={require("../../assests/images/Costa_logo.png")} />
-          <p>Welcome to, Costa</p>
         </LeftCard>
         <RightCard>
           <h4>Phone number verification</h4>

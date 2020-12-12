@@ -10,10 +10,11 @@ import fetchGenderReducer from "./Gender";
 import fetchArabicEducationReducer from "./arabicEducation";
 import fetchquranLevelReducer from "./quranLevel";
 import fetchLanguagesReducer from "./Languages";
-import fetchAgzaaCountReducer from "./agzaaCount";
+// import fetchAgzaaCountReducer from "./agzaaCount";
 import fetchgoalsReducer from "./Goals";
 import { signInReducer } from "./signIn";
 import { personalDataReducer } from "./personalData";
+import fetchBrandDataReducer from "./agzaaCount";
 
 const rootReducer = (history) =>
   combineReducers({
@@ -28,11 +29,12 @@ const rootReducer = (history) =>
     arabicEducation: fetchArabicEducationReducer,
     level: fetchquranLevelReducer,
     languages: fetchLanguagesReducer,
-    agzaaCount: fetchAgzaaCountReducer,
+    // agzaaCount: fetchAgzaaCountReducer,
     golas: fetchgoalsReducer,
     Phone: registerPhoneReducer,
     verifyData: verifyPhoneReducer,
-    userData: personalDataReducer
+    userData: personalDataReducer, 
+    brandData: fetchBrandDataReducer
   });
 
 export default rootReducer;
